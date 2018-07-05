@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F
 import data
-import cPickle as pickle
+import _pickle as pickle
 import numpy
 
 from torch.autograd import Variable
@@ -61,7 +61,7 @@ class Net(nn.Module):
 
 
 model = Net()
-print model
+print(model)
 model.cuda()
 
 pretrained=False
@@ -147,7 +147,7 @@ def adjust_learning_rate(optimizer, epoch):
 def print_std():
     for m in model.modules():
         if isinstance(m, nn.Conv2d):
-            print torch.std(m.weight.data)
+            print(torch.std(m.weight.data))
 
 for epoch in range(1, 320):
     adjust_learning_rate(optimizer, epoch)
